@@ -1,0 +1,197 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+*::before,
+*::after {
+  box-sizing: border-box
+}
+
+body {
+  font-size: 16px;
+}
+
+h1,h2,h3,h4,h5,h6 {
+  font-weight: normal;
+}
+
+a {
+  text-decoration: none;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+section h2:first-child {
+  font-size: 17px;
+  border-left: 2px solid #d33a31;
+  font-weight: normal;
+  margin: 18px 0;
+  padding-left: 8px;
+  line-height: 1;
+}
+
+.topBar {
+  background-color: #d43c33;
+  padding: 0.4rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.topBar .logo {
+  width: 3.6rem;
+}
+
+.topBar .downloadApp {
+  color: white;
+  line-height: 26px;
+  border: 0.5px solid white;
+  border-radius: 14px;
+  padding: 0 8px;
+  display: block;
+}
+
+.siteNav {}
+
+.siteNav>ol {
+  display: flex;
+  text-align: center;
+  border-bottom: 1px solid #ccc;
+}
+
+.siteNav>ol>li {
+  font-size: 15px;
+  flex: 1;
+}
+
+.siteNav>ol>li.active {
+  color: #d33a31;
+}
+
+.siteNav>ol>li>span {
+  line-height: 40px;
+  display: inline-block;
+  position: relative;
+}
+
+.siteNav>ol>li.active>span::before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  left: 0;
+  bottom: 0;
+  border-bottom: 2px solid #d33a31;
+}
+
+.playLists {
+  margin-top: 22px;
+}
+
+.playLists>ul {
+  font-size: 13px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.playLists>ul img {
+  width: 100%;
+}
+
+.playLists>ul>li {
+  width: calc(33.3% - 2px);
+}
+
+.playLists>ul>li p {
+  margin: 1px 6px 16px;
+  line-height: 1.2;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-align: justify;
+}
+
+.latestMusic>p {
+  text-align: center;
+}
+
+.latestMusic>ol {
+  padding-left: 10px;
+
+}
+
+.latestMusic>ol>li {
+  padding: 4px 0;
+  border-bottom: 1px solid #e2e2e3;
+  position: relative;
+}
+
+.latestMusic>ol>li a {
+  color: inherit;
+}
+
+.latestMusic>ol>li h3 {
+  font-size: 17px;
+}
+
+.latestMusic>ol>li p {
+  font-size: 13px;
+  color: #888;
+  display: flex;
+  align-items: center;
+  margin-top: 2px;
+}
+
+.latestMusic>ol>li svg.play {
+  width: 0.6rem;
+  height: 0.6rem;
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  fill: #aaa;
+}
+
+.latestMusic>ol>li svg.sq {
+  width: 0.5rem;
+  height: 0.4rem;
+  margin-right: 0.2em;
+  fill: #fe672e;
+}
+
+footer.art {
+  padding-top: 70px;
+}
+
+footer.art .log {
+  text-align: center;
+}
+
+footer.art .logosvg {
+  width: 5rem;
+}
+
+footer.art .openApp {
+  font-size: 1em;
+  color: #d43c33;
+  display: block;
+  max-width: 7rem;
+  margin: 10px auto 2px;
+  text-align: center;
+  border: 1px solid;
+  border-radius: 18px;
+  padding: 10px 0px;
+  line-height: 14px;
+}
+
+footer.art .copyright {
+  text-align: center;
+  font-size: 12px;
+  transform: scale(.75);
+}

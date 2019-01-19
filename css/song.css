@@ -1,0 +1,153 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-size: 16px;
+}
+
+*::before,
+*::after {
+  box-sizing: border-box
+}
+
+@keyframes circle {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.page {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  background: transparent url('../images/我好想你模糊.jpg') no-repeat center;
+  background-size: cover;
+}
+
+.disc-container {
+  position: relative;
+}
+
+.disc-container .icon-wrapper {
+  width: 1.5rem;
+  height: 1.5rem;
+  border: 1px solid white;
+  border-radius: 50%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-self: center;
+  position: absolute;
+  z-index: 1;
+}
+
+.disc-container .icon {
+  width: 0.6rem;
+  fill: white;
+}
+
+.disc-container .pointer {
+  width: 2.5rem;
+  position: absolute;
+  left: 4.6rem;
+}
+
+.disc-container .disc {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 1.8rem;
+}
+
+.disc-container .ring {
+  width: 8rem;
+}
+
+.disc-container .light {
+  width: 8rem;
+  position: absolute;
+  display: block;
+}
+
+.disc-container .cover {
+  width: 5rem;
+  position: absolute;
+  border-radius: 50%;
+  display: block;
+  animation: circle 20s infinite linear;
+  animation-play-state: paused;
+}
+
+.disc-container.playing .light,
+.disc-container.playing .cover {
+  animation-play-state: running;
+}
+
+.disc-container .icon-pause {
+  display: none;
+}
+
+.disc-container.playing .icon-pause {
+  display: block;
+}
+
+.disc-container.playing .icon-play {
+  display: none;
+}
+
+.song-description {
+  flex-grow: 1;
+  color: #aeabac;
+  text-align: center;
+  line-height: 1.5;
+}
+
+.song-description h1 {
+  color: white;
+  font-size: 16px;
+}
+
+.song-description .lyric {
+  height: 72px;
+  border: 1px solid red;
+  overflow: hidden;
+}
+
+.song-description p {
+  line-height: 24px;
+}
+
+.song-description p.active {
+  color: white;
+}
+
+.page>.links {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #d43832;
+}
+
+.page>.links>a {
+  margin: 1em;
+  color: inherit;
+  text-align: center;
+  text-decoration: none;
+  border: 1px solid #d43832;
+  border-radius: 20px;
+  background-color: transparent;
+  padding: 10px 54px;
+  letter-spacing: 6px;
+}
+
+.page>.links>a.active {
+  background-color: #d43832;
+  color: white;
+}
