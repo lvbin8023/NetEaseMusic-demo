@@ -2,7 +2,7 @@ $(function () {
   let urlLocation = window.location.search;
   let urlId = parseInt(urlLocation.match(/\bid=([^&]*)/)[1]);
 
-  $.get('../song.json').then(function (response) {
+  $.get('http://plggyay5q.bkt.clouddn.com/song.json').then(function (response) {
     //歌曲
     let songs = response;
     let song = songs.filter((s) => {
