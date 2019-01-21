@@ -8,11 +8,16 @@ $(function () {
     let song = songs.filter((s) => {
       return s.id === urlId;
     })[0];
-    let {url,name,singer,lyric} = song;
+    let {
+      url,
+      name,
+      singer,
+      lyric
+    } = song;
 
     //初始化歌曲播放和歌词文本
-    initPlayer.call(undefined,url);
-    initText(name,singer,lyric);
+    initPlayer.call(undefined, url);
+    initText(name, singer, lyric);
 
     //歌曲播放
     function initPlayer(url) {
@@ -32,12 +37,41 @@ $(function () {
         audio.play();
         $('.disc-container').addClass('playing');
       });
+
+      //歌词滚动
+      setInterval(() => {
+        let seconds = audio.currentTime;
+        let munites = ~~(seconds / 60);
+        let left = seconds - munites * 60;
+        let time = `${pad(munites)}:${pad(left)}`;
+        let $lines = $('.lines>p');
+        let $whichLine;
+        for (let i = 0; i < $lines.length; i++) {
+          let currentLineTime = $lines.eq(i).attr('data-time');
+          let nextLineTime = $lines.eq(i + 1).attr('data-time');
+          if ($lines[i + 1] != undefined && currentLineTime < time && nextLineTime > time) {
+            $whichLine = $lines.eq(i);
+          }
+        }
+        if ($whichLine) {
+          $whichLine.addClass('active').prev().removeClass('active');
+          let $top = $whichLine.offset().top;
+          let $lineTop = $('.lines').offset().top;
+          let $delta = $top - $lineTop - $('.lyric').height()/3;
+          $('.lines').css('transform',`translateY(-${$delta}px)`);
+        }
+      }, 300);
+    }
+
+    //时间格式转换
+    function pad(number) {
+      return number < 10 ? '0' + number : '' + number;
     }
 
     //歌名和歌词渲染
     function initText(name, singer, lyric) {
       $('.songName').text(`${name} - ${singer}`);
-      parseLyric.call(undefined,lyric);
+      parseLyric.call(undefined, lyric);
     }
 
     //获取歌词

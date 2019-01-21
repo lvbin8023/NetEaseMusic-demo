@@ -116,8 +116,11 @@ body {
 
 .song-description .lyric {
   height: 72px;
-  border: 1px solid red;
   overflow: hidden;
+}
+
+.song-description .lines {
+  transition: transform linear 0.3s;
 }
 
 .song-description p {
