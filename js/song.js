@@ -2,7 +2,7 @@ $(function () {
   let urlLocation = window.location.search;
   let urlId = parseInt(urlLocation.match(/\bid=([^&]*)/)[1]);
 
-  $.get('//plggyay5q.bkt.clouddn.com/song.json').then(function (response) {
+  $.get('../song.json').then(function (response) {
     //歌曲
     let songs = response;
     let song = songs.filter((s) => {
@@ -57,8 +57,8 @@ $(function () {
           $whichLine.addClass('active').prev().removeClass('active');
           let $top = $whichLine.offset().top;
           let $lineTop = $('.lines').offset().top;
-          let $delta = $top - $lineTop - $('.lyric').height()/3;
-          $('.lines').css('transform',`translateY(-${$delta}px)`);
+          let $delta = $top - $lineTop - $('.lyric').height() / 3;
+          $('.lines').css('transform', `translateY(-${$delta}px)`);
         }
       }, 300);
     }
