@@ -103,6 +103,7 @@ body {
 }
 
 .song-description {
+  margin-top: 0.5rem;
   flex-grow: 1;
   color: #aeabac;
   text-align: center;
